@@ -20,11 +20,17 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+    - name: Change to GiftcardSite directory
+      run: cd GiftcardSite
+
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
+      working-directory: ./GiftcardSite
 
     - name: Build with Gradle
       run: ./gradlew build
+      working-directory: ./GiftcardSite
 
     - name: Run tests
       run: ./gradlew test
+      working-directory: ./GiftcardSite

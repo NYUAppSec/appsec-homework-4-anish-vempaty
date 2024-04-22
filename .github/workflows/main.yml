@@ -18,8 +18,11 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '17'
-        distribution: 'adopt'
+        distribution: 'temurin'
 
+    - name: Set up Android SDK
+      uses: android-actions/setup-android@v2
+      
     - name: Change to GiftcardSite directory
       run: cd GiftcardSite
 

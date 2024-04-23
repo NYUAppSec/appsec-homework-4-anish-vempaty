@@ -1,0 +1,17 @@
+What are the two types of Intents?
+There are two types of Intents in Android: explicit and implicit intents. Explicit intents specify the component to start by name (the exact class), making it clear which application will satisfy the intent. Implicit intents do not directly specify the component; instead, they declare a general action to perform, which allows any app that can handle it to respond.
+
+Which of these Intents are (generally) more secure?
+Explicit intents are more secure because they target a specific component, reducing the risk of interception. Implicit intents may allow any application to respond, which can lead to security vulnerabilities.
+
+What type of Intent is shown on lines 69 to 73 of SecondFragment.kt?
+An implicit intent is shown, which is used to open a URL with a web browser. This intent does not specify the application component that should handle it.
+
+What type of Intent is shown on lines 68 to 70 of ThirdFragment.kt?
+An explicit intent is shown, which directs the intent to launch the ProductScrollingActivity specifically. This intent clearly defines the target component within the application.
+
+Which of these two Intents is the proper way to do an Intent?
+Explicit intents are generally preferable for internal application actions because they enhance security by specifying the exact target. Implicit intents are useful for actions where multiple apps could be suitable handlers, such as sharing data.
+
+Modification Explanation
+I modified the intent in SecondFragment.kt to be explicit instead of implicit to prevent external applications from intercepting or handling it. This change ensures that only the designated component within our application can respond to the intent, thus enhancing the application's security.

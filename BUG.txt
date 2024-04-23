@@ -1,0 +1,13 @@
+Vulnerability Description
+There exists a critical vulnerability in the REST API used by our application that permits users to utilize gift cards that do not belong to them. This issue is particularly concerning because it allows unauthorized access to resources, potentially leading to financial losses or data privacy issues for our users.
+
+Identifying the Cause of the Vulnerability
+The REST API exposes an endpoint /api/use/{card_number} that accepts a PUT request to utilize a gift card. This endpoint is linked to the useCard method in CardInterface.kt, which requires a card number and an Authorization header for token verification. The UseCard.kt file implements the user interface and network request logic that interacts with this API endpoint. The core issue arises from the server's inadequate validation process; it confirms only the validity of the authorization token and the card ID but does not verify whether the card belongs to the authenticated user. Consequently, any attacker with a valid token and a card number can misuse this functionality, exploiting the absence of proper user-to-card verification.
+
+Potential Solution
+To rectify this vulnerability, we must implement a robust authorization mechanism that maps each user to their respective gift cards. This solution involves several steps:
+1. User-Card Association: Integrate a system where each card is explicitly linked to a user ID, ensuring that all card transactions can be traced back to individual users. This association should be enforced in the database schema and checked within the API logic in CardInterface.kt.
+2. Enhanced Validation Logic: Modify the useCard method in CardInterface.kt to include a validation check that compares the card ID provided in the request against the user ID derived from the provided token. The UseCard.kt should also be updated to ensure it handles any error messages related to authorization failures gracefully, informing the user accordingly.
+3. Server-Side Authentication and Authorization: Strengthen server-side security protocols to enforce both authentication (verifying who the user is) and authorization (verifying what they are allowed to do). This approach prevents unauthorized use of gift cards by ensuring that only the rightful owners can use them. Server-side logic must be updated to perform these checks before processing any card usage requests.
+
+Implementing these solutions will significantly enhance the security of our application by preventing unauthorized access and use of gift cards. This will not only protect our users but also maintain the integrity and trustworthiness of our application.

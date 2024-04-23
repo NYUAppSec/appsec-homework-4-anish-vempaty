@@ -44,7 +44,6 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, Locat
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         mAccel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         setContentView(R.layout.activity_scrolling)

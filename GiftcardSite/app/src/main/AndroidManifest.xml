@@ -25,8 +25,6 @@
             <intent-filter>
             <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-
             <data android:mimeType="text/giftcards_use" />
                 <data android:scheme="giftcard" />
                 <data android:host="appsec.moyix.net"/>
@@ -40,8 +38,6 @@
             <intent-filter>
             <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-
             <data android:mimeType="text/giftcards_buy" />
                 <data android:scheme="giftcard" />
                 <data android:host="appsec.moyix.net"/>
@@ -54,8 +50,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="text/giftcards_browse" />
                 <data android:scheme="giftcard" />
@@ -79,8 +73,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="text/giftcards_list" />
                 <data android:scheme="giftcard" />
